@@ -13,3 +13,4 @@ FinSight is a responsive finance blog website built using HTML, CSS. It is desig
 
 - HTML5
 - CSS3
+-Sass
