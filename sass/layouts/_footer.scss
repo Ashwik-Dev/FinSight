@@ -1,0 +1,185 @@
+
+.footer {
+    // grid-column: 1 / -2;
+    background-color: $color-secondary;
+    padding: 4rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
+    grid-template-rows: max-content min-content;
+    column-gap: 6rem;
+    padding: 2rem 3rem;
+    font-weight: 400;
+
+    @include respond(tab-land) {
+        grid-row: row-start 5 / row-end 5;
+    }
+
+    @include respond(tab-port) {
+        grid-template-columns: none;
+        grid-template-rows: repeat(3, min-content);
+    }
+
+    &__left {
+
+        @include respond(tab-port) {
+            grid-row: 1 / 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        &--logo {
+            display: flex;
+            align-items: center;
+
+            &-img {
+                width: 4.5rem;
+                height: 4.5rem;
+                margin-right: 1rem;
+            }
+
+            &-name {
+                font-size: 2.5rem;
+                font-weight: 500;
+                color: $color-primary-light;
+            }
+        }
+
+        &--social {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+
+            &-link {
+                transition: all 0.4s;
+
+                &:not(:last-child) {
+                    margin-right: 1.5rem;
+                }
+
+                &:hover {
+                    transform: scale(1.2) translateY(-3px);
+                }
+            }
+
+            &-icon {
+                fill: $color-primary-light;
+                width: 3rem;
+                height: 3rem;
+            }
+        }  
+        
+        &--subscribe {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 2rem;
+            color: $color-primary-light;
+
+            @include respond(tab-port) {
+                align-items: center;
+            }
+
+            & > * {
+                margin-bottom: 2rem;
+            }
+
+            &-text {
+                font-size: 1.7rem;
+                letter-spacing: 1px;
+                width: 50rem;
+                
+            }
+
+            &-form {
+                display: flex;
+                border: 1px solid rgba($color-primary-light, 0.5);
+                border-radius: 5px;
+            }
+
+            &-input {
+                border: none;
+                font-family: inherit;
+                font-size: 1.7rem;
+                padding: 0.5rem 1rem;
+                // width: 20rem;
+
+                &:focus {
+                    outline: none;
+                    // border: none;
+                }
+            }
+
+            &-btn {
+                // transform: translateX(-2px);
+                border-radius: 0;
+                border: none;
+                color: currentColor;
+                padding: 0.5rem 1rem;
+                font-size: 2rem;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.4s;
+
+                &:hover {
+                    background-color: $color-secondary-light
+                }
+            }
+        }
+    }
+
+    &__right {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+        gap: 1.5rem;
+        color: $color-primary;
+
+        &--about {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            &-list {
+                list-style: none;
+                margin-top: 2rem;
+            }
+
+            &-item {
+                font-size: 1.7rem;
+                margin-bottom: 2rem;
+                transition: all 0.4s;
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+
+            &-link {
+                text-decoration: none;
+                color: $color-primary-dark;           
+            }
+        }
+    }
+
+    &__copyright {
+        grid-column: 1 / -1;
+        grid-row: 2 / -1;
+        border-top: 1px solid rgba($color-primary-light, 0.5);
+        font-size: 1.7rem;
+        color: $color-grey-light-1;
+        margin-top: 2rem;
+        justify-items: center;
+        align-items: center;
+
+        @include respond(tab-port) {
+            grid-row: 3 / -1;
+        }
+
+        &--text {
+            margin-top: 2rem;
+            letter-spacing: 1px;
+        }
+    }
+}

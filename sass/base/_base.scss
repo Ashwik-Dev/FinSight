@@ -1,0 +1,73 @@
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+
+    @include respond(tab-land) {
+        font-size: 50%;
+    }
+
+    @include respond(phone) {
+        font-size: 40%;
+    }
+}
+
+body {
+    font-family: $font-primary;
+    font-weight: 600;
+    line-height: 1.7;
+    color: $color-grey-dark-1;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: [main-start] minmax(9rem, 1fr) [main-end sidebar-start] 5vw [sidebar-end];
+    grid-template-rows: [header-start] 100vh [header-end]  repeat(5, min-content);
+
+    @include respond(tab-land) {
+        grid-template-columns: none;
+        grid-template-rows: [sidebar-start] 8rem 
+                        [sidebar-end header-start] calc(80vh - 5rem) 
+                        [header-end ]  repeat(5, 
+                        [row-start] min-content [row-end]);
+    }
+}
+
+.btn {
+    border: none;
+    border-radius: 3px;
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 400;
+    padding: 1.2rem 2rem;
+    cursor: pointer;
+
+    &--dark {
+        background-color: $color-secondary-dark;
+        color: $color-primary-light;
+        transition: all 0.2s;
+
+        &:hover {
+            background-color: $color-secondary-light;
+        }
+    }
+
+    &--light {
+        background-color: $color-primary-light;
+        color: $color-secondary-dark;
+        transition: all 0.2s;
+
+        &:hover {
+            background-color: $color-primary-dark;
+        }
+    }
+}
